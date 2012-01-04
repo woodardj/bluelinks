@@ -2,13 +2,10 @@
 <head>
 <script src="jquery.min.js" type="text/javascript"></script>
 <script>
-var fourseg_id = fourseg_id ? fourseg_id : 'fourseg_'+Math.round(new Date().getTime() / 1000);
 $(document).ready(function($){
   chrome.tabs.getSelected(null, function(tab) {
     chrome.tabs.sendRequest(tab.id, {}, function(response) {
       console.log(response);
-      fourseg_url = "http://fourthsegment.com/post/bookmarklet" + "?uri=" + encodeURIComponent(response.url) + "&title=" + encodeURIComponent(response.title);
-      $("#4seg_iframe").attr('src',fourseg_url);
     });
   });
 });

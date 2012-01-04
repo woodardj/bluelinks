@@ -1,19 +1,25 @@
 {
-  "name": "Ask Everywhere",
-  "version": "1.0.0.2",
-  "description": "FourthSegment is the bomb-diggity.",
+  "name": "Reddit Blue Links",
+  "version": "1.0.0.0",
+  "description": "I must have... the BLUE pages.",
   "background_page": "background.html",
-  "browser_action": {
-    "default_icon": "icon.png",
-    "popup": "popup.html"
-  },
+  
   "content_scripts": [{
       "matches": ["<all_urls>"],
-      "js": ["jquery.min.js","content_script.js"]
+      "js": ["jquery.min.js"]
   }],
+  
+  "page_action" :
+  {
+    "default_icon" : "icon.png",
+    "default_title" : "There's a 'G' in this URL!"
+  },
   "permissions": [
-    "tabs",
-    "cookies",
-    "*://*.fourthsegment.com"
-  ]
+    "tabs", "http://*/*", "history"
+  ],
+  "icons" : {
+    "48" : "icon.png",
+    "128" : "icon.png"
+  },
+  "content_security_policy": "script-src 'self'"
 }
