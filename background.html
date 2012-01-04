@@ -1,0 +1,21 @@
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+chrome.extension.onRequest.addListener(
+  function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script: '" + request.title + "' (" + sender.tab.url + ")":
+                "from the extension");
+    $("#browsing-data").append("<dt>"+ request.title +"</dt>" + "<dd>" + sender.tab.url + "</dd>");
+//    if (request.greeting == "hello")
+//      sendResponse({farewell: "goodbye"});
+//    else
+//      sendResponse({}); // snub them.
+  });
+  function get_history(){
+    return $("#browsing-data");
+  }
+</script>
+<body>
+  <dl id="browsing-data">
+  </dl>
+</body>
