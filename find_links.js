@@ -1,4 +1,3 @@
-alert("hi.");
 var the_list = []
 $(".thing").each(function(i){
   link = $(this).find("a.title");

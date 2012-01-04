@@ -11,8 +11,6 @@ function checkForValidUrl(tabId, changeInfo, tab) {
 };
 
 function askContentScriptForBlueLinks( tab ){
-  console.log(tab);
-//  port = chrome.tabs.connect(tab, object connectInfo);
   chrome.tabs.executeScript(tab.id, {'file': 'find_links.js'}, function(){});
   
 }
@@ -43,7 +41,6 @@ chrome.extension.onRequest.addListener(
   function(request, sender, sendResponse) {
     if (request.message == "OPEN ALL THE TABS!"){
       console.log("Open ALL the tabs? :(");
-      console.log(request.the_list);
 
       for(i in request.the_list){
         l = new RedditLink(request.the_list[i]);
@@ -52,7 +49,5 @@ chrome.extension.onRequest.addListener(
     }
   });
 
-// Listen for any changes to the URL of any tab.
 chrome.tabs.onUpdated.addListener(checkForValidUrl);
-
 chrome.pageAction.onClicked.addListener(askContentScriptForBlueLinks);
