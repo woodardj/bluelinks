@@ -25,14 +25,10 @@ function openTabs( list ){
 }
 
 function RedditLink(url){
-  console.log("created redditlink "+url);
   this.url = url;
-  
   this.conditionally_open = function(){
     chrome.history.getVisits({'url':this.url},function(items){
-//      console.log(this);
       if(items.length == 0){
-        console.log(this.args[0].url + " is unvisited!");
         chrome.tabs.create({
           'url':this.args[0].url,
           'active':false
@@ -43,12 +39,8 @@ function RedditLink(url){
   }
 }
 
-
 chrome.extension.onRequest.addListener(
   function(request, sender, sendResponse) {
-    console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
     if (request.message == "OPEN ALL THE TABS!"){
       console.log("Open ALL the tabs? :(");
       console.log(request.the_list);
