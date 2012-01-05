@@ -11,15 +11,15 @@
   
   "page_action" :
   {
-    "default_icon" : "icon.png",
+    "default_icon" : "icon-400.png",
     "default_title" : "There's a 'G' in this URL!"
   },
   "permissions": [
     "tabs", "http://*/*", "history"
   ],
   "icons" : {
-    "48" : "icon.png",
-    "128" : "icon.png"
+    "48" : "icon-48.png",
+    "128" : "icon-128.png"
   },
   "content_security_policy": "script-src 'self'"
 }
