@@ -3,9 +3,8 @@ var locked = false;
 // Called when the url of a tab changes.
 function checkForValidUrl(tabId, changeInfo, tab) {
   // If the letter 'g' is found in the tab's URL...
-  if (tab.url.indexOf('http://www.reddit.com') > -1) {
+  if (tab.url.match(/https?:\/\/www\.reddit\.com/)) {
     // ... show the page action.
-    console.log("Welcome to Reddit");
     chrome.pageAction.show(tabId);
   }
 };

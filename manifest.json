@@ -1,6 +1,6 @@
 {
   "name": "Reddit Blue Links",
-  "version": "1.0.0.1",
+  "version": "1.0.0.2",
 	"manifest_version": 2,
   "description": "I must have... the BLUE pages.",
 	"background": {
@@ -18,7 +18,7 @@
     "default_title" : "We're go for launch."
   },
   "permissions": [
-    "tabs", "http://*/*", "history"
+    "tabs", "http://*/*", "https://*/", "history"
   ],
   "icons" : {
     "48" : "icon-48.png",
